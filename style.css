@@ -1,0 +1,1612 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080306;
+    color: #fff;
+    font-family: Tahoma, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #210b17 0%,
+            #0e0509 42%,
+            #050204 100%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+.intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#c {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    opacity: 0.95;
+}
+
+
+/* soft background lights */
+
+.glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    opacity: 0.15;
+}
+
+.glow-one {
+    background: #c32d70;
+
+    top: 5%;
+    left: 15%;
+}
+
+.glow-two {
+    background: #8c1649;
+
+    bottom: 0;
+    right: 10%;
+}
+
+
+/* intro content */
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    animation: introAppear 1.8s ease forwards;
+
+    animation-delay: 1.8s;
+
+    direction: ltr;
+}
+
+.small-line {
+    font-size: 15px;
+
+    color: #e8a2bd;
+
+    margin-bottom: 15px;
+
+    opacity: 0.8;
+}
+
+.intro-content h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 7vw, 80px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 12px rgba(255, 117, 171, 0.45),
+        0 0 40px rgba(190, 32, 102, 0.3);
+
+    margin-bottom: 17px;
+}
+
+.intro-content p {
+    direction: rtl;
+
+    font-size: 15px;
+
+    color: #d8b8c5;
+
+    margin-bottom: 28px;
+
+    opacity: 0.9;
+}
+
+#enterButton {
+    border: 1px solid rgba(255, 166, 198, 0.35);
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #fff;
+
+    padding: 13px 25px;
+
+    border-radius: 40px;
+
+    font-family: Tahoma, Arial, sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#enterButton span {
+    color: #f28aae;
+
+    margin-right: 6px;
+
+    font-size: 17px;
+}
+
+#enterButton:hover {
+    transform: translateY(-3px);
+
+    background: rgba(220, 72, 125, 0.14);
+
+    border-color: rgba(255, 166, 198, 0.7);
+
+    box-shadow:
+        0 0 25px rgba(216, 55, 116, 0.2);
+}
+
+@keyframes introAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   WEBSITE
+========================= */
+
+.website {
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.website.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+
+    top: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    width: min(94%, 1050px);
+
+    padding: 11px 15px;
+
+    border-radius: 50px;
+
+    background: rgba(14, 5, 10, 0.65);
+
+    border: 1px solid rgba(255, 170, 199, 0.1);
+
+    backdrop-filter: blur(16px);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+
+    color: #f5c0d2;
+
+    white-space: nowrap;
+
+    font-size: 16px;
+}
+
+.navbar nav {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    direction: rtl;
+}
+
+.navbar nav a {
+    text-decoration: none;
+
+    color: #d9c5cd;
+
+    font-size: 12px;
+
+    padding: 8px 10px;
+
+    border-radius: 20px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease;
+}
+
+.navbar nav a:hover {
+    color: #fff;
+
+    background: rgba(236, 102, 151, 0.1);
+}
+
+.music-button {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 176, 204, 0.2);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #f2aac4;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.music-button:hover {
+    background: rgba(232, 83, 139, 0.15);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        130px
+        7%
+        90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #2a0b1c 0%,
+            #11060d 40%,
+            #070305 100%
+        );
+}
+
+.home::before,
+.home::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+}
+
+.home::before {
+    width: 300px;
+    height: 300px;
+
+    background: rgba(170, 25, 84, 0.18);
+
+    top: 15%;
+    left: 5%;
+}
+
+.home::after {
+    width: 300px;
+    height: 300px;
+
+    background: rgba(255, 100, 160, 0.08);
+
+    bottom: 5%;
+    right: 5%;
+}
+
+.home-content {
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    color: #df8fab;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    direction: ltr;
+
+    display: block;
+
+    margin-bottom: 18px;
+}
+
+.home-content h2 {
+    font-family: Georgia, serif;
+
+    font-weight: 400;
+
+    font-size: clamp(42px, 7vw, 76px);
+
+    margin-bottom: 20px;
+}
+
+.home-content p {
+    color: #cbb3bd;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    margin-bottom: 32px;
+}
+
+.main-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    background: linear-gradient(
+        135deg,
+        #8f2452,
+        #c34c79
+    );
+
+    padding: 13px 23px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 10px 35px rgba(161, 35, 88, 0.25);
+
+    transition: 0.3s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 45px rgba(201, 52, 113, 0.3);
+}
+
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin-bottom: 50px;
+}
+
+.section-title > span {
+    display: block;
+
+    color: #ef9bb8;
+
+    margin-bottom: 12px;
+
+    font-size: 22px;
+}
+
+.section-title h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px, 5vw, 50px);
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #bdaab3;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.surprise {
+    flex-direction: column;
+
+    background: #0a0408;
+}
+
+.surprise-grid {
+    width: min(100%, 1000px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.surprise-card {
+    position: relative;
+
+    min-height: 260px;
+
+    padding: 32px 26px;
+
+    border-radius: 24px;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(94, 23, 52, 0.38),
+            rgba(20, 7, 14, 0.72)
+        );
+
+    border: 1px solid rgba(255, 163, 195, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.surprise-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: rgba(224, 75, 132, 0.12);
+
+    filter: blur(35px);
+
+    top: -40px;
+    right: -30px;
+}
+
+.surprise-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 162, 194, 0.25);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 38px;
+
+    margin-bottom: 24px;
+}
+
+.surprise-card h3 {
+    font-size: 19px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+.surprise-card p {
+    color: #bcaab2;
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+.card-arrow {
+    position: absolute;
+
+    bottom: 22px;
+    left: 24px;
+
+    color: #e895b2;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+    background:
+        radial-gradient(
+            circle at center,
+            #1b0812,
+            #080306 65%
+        );
+}
+
+.letter-wrapper {
+    position: relative;
+
+    width: min(100%, 800px);
+}
+
+.letter-decoration {
+    position: absolute;
+
+    top: -30px;
+    right: 30px;
+
+    color: #d85b8b;
+
+    font-size: 50px;
+
+    transform: rotate(15deg);
+
+    opacity: 0.45;
+}
+
+.letter {
+    padding: 55px 65px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(56, 15, 32, 0.75),
+            rgba(18, 6, 12, 0.88)
+        );
+
+    border: 1px solid rgba(255, 171, 199, 0.1);
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.4);
+}
+
+.letter-label {
+    display: block;
+
+    direction: ltr;
+
+    color: #dc8da8;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 14px;
+}
+
+.letter h2 {
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    margin-bottom: 30px;
+}
+
+.letter-text {
+    color: #d3c0c8;
+
+    font-size: 14px;
+
+    line-height: 2.2;
+}
+
+.letter-text p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory {
+    background: #0a0408;
+}
+
+.memory-content {
+    width: min(100%, 1000px);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.memory-photo {
+    position: relative;
+
+    border-radius: 28px;
+
+    padding: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6e2145,
+            #1b0811
+        );
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.45);
+}
+
+.memory-photo img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.photo-glow {
+    position: absolute;
+
+    inset: 20%;
+
+    background: #d94d83;
+
+    filter: blur(70px);
+
+    opacity: 0.2;
+}
+
+.memory-text span {
+    direction: ltr;
+
+    display: block;
+
+    color: #dc8da8;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.memory-text h2 {
+    font-family: Georgia, serif;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    margin-bottom: 22px;
+}
+
+.memory-text p {
+    color: #c0adb5;
+
+    line-height: 2;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FLOWERS
+========================= */
+
+.flowers {
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #250b19 0%,
+            #10050b 45%,
+            #050204 100%
+        );
+}
+
+.flowers .section-title {
+    margin-bottom: 15px;
+}
+
+.bouquet {
+    position: relative;
+
+    width: 360px;
+    height: 360px;
+
+    margin-top: 5px;
+
+    filter:
+        drop-shadow(
+            0 20px 35px rgba(0, 0, 0, 0.45)
+        );
+}
+
+/* ساقه‌ها */
+
+.bouquet::before {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 210px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #254c32,
+            #5d8759,
+            #254c32
+        );
+
+    left: 177px;
+    top: 105px;
+
+    border-radius: 10px;
+
+    transform: rotate(-5deg);
+
+    box-shadow:
+        25px 15px 0 -1px #315d3b,
+        -25px 18px 0 -1px #315d3b;
+}
+
+/* گل‌ها */
+
+.flower {
+    position: absolute;
+
+    width: 78px;
+    height: 78px;
+
+    font-size: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffdce8 0 10%,
+            #ef9fba 11% 28%,
+            #c95782 29% 50%,
+            #8f3158 51% 68%,
+            transparent 69%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(231, 99, 148, 0.35)
+        );
+
+    animation:
+        flowerFloat 4s ease-in-out infinite;
+}
+
+/* گل وسط */
+
+.flower-1 {
+    top: 35px;
+    left: 141px;
+
+    width: 88px;
+    height: 88px;
+}
+
+/* گل چپ */
+
+.flower-2 {
+    top: 100px;
+    left: 65px;
+
+    transform: rotate(-12deg);
+
+    animation-delay: .5s;
+}
+
+/* گل راست */
+
+.flower-3 {
+    top: 92px;
+    right: 62px;
+
+    transform: rotate(10deg);
+
+    animation-delay: 1s;
+}
+
+/* گل پایین چپ */
+
+.flower-4 {
+    top: 155px;
+    left: 105px;
+
+    width: 70px;
+    height: 70px;
+
+    animation-delay: 1.4s;
+}
+
+/* گل پایین راست */
+
+.flower-5 {
+    top: 165px;
+    right: 105px;
+
+    width: 70px;
+    height: 70px;
+
+    animation-delay: 1.8s;
+}
+
+/* برگ‌ها */
+
+.leaves {
+    position: absolute;
+
+    left: 50%;
+    bottom: 35px;
+
+    transform: translateX(-50%);
+
+    width: 230px;
+
+    font-size: 0;
+}
+
+/* برگ چپ */
+
+.leaves::before {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #719566,
+            #31583a
+        );
+
+    border-radius: 100% 0 100% 0;
+
+    transform:
+        rotate(-25deg);
+
+    left: 30px;
+}
+
+/* برگ راست */
+
+.leaves::after {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 35px;
+
+    background:
+        linear-gradient(
+            45deg,
+            #719566,
+            #31583a
+        );
+
+    border-radius: 0 100% 0 100%;
+
+    transform:
+        rotate(25deg);
+
+    right: 30px;
+}
+
+@keyframes flowerFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            scale(1.025);
+    }
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-section {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2a0b1c 0%,
+            #10050b 45%,
+            #050204 100%
+        );
+}
+
+.cake-area {
+    position: relative;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.cake-message {
+    font-family: Georgia, serif;
+
+    font-size: clamp(28px, 5vw, 42px);
+
+    color: #f3b2c8;
+
+    margin-bottom: 38px;
+
+    text-shadow:
+        0 0 20px rgba(235, 101, 153, .25);
+
+    transition: .5s ease;
+}
+
+
+/* کیک */
+
+.cake {
+    position: relative;
+
+    width: 300px;
+    height: 260px;
+
+    margin-bottom: 38px;
+
+    filter:
+        drop-shadow(
+            0 30px 35px rgba(0, 0, 0, .5)
+        );
+}
+
+
+/* لایه اصلی */
+
+.cake-body {
+    position: absolute;
+
+    width: 270px;
+    height: 105px;
+
+    left: 15px;
+    bottom: 42px;
+
+    border-radius:
+        18px 18px 28px 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d6819e 0%,
+            #a94d70 48%,
+            #71304d 100%
+        );
+
+    box-shadow:
+        inset 0 8px 15px rgba(255,255,255,.12),
+        0 12px 20px rgba(0,0,0,.3);
+}
+
+
+/* لایه پایینی */
+
+.cake-bottom {
+    position: absolute;
+
+    width: 280px;
+    height: 48px;
+
+    left: 10px;
+    bottom: 20px;
+
+    border-radius:
+        0 0 25px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #71304c,
+            #481b30
+        );
+
+    box-shadow:
+        inset 0 -5px 10px rgba(0,0,0,.2);
+}
+
+
+/* سطح کیک */
+
+.cake-top {
+    position: absolute;
+
+    width: 270px;
+    height: 65px;
+
+    left: 15px;
+    top: 92px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #fff0f4 0%,
+            #f4c7d5 28%,
+            #dc8da8 58%,
+            #a95274 100%
+        );
+
+    z-index: 2;
+
+    box-shadow:
+        inset 0 -7px 10px rgba(105,30,60,.15);
+}
+
+
+/* خامه‌های روی لبه */
+
+.cream {
+    position: absolute;
+
+    width: 48px;
+    height: 30px;
+
+    top: 32px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff7f9,
+            #efc4d1
+        );
+
+    border-radius:
+        0 0 25px 25px;
+
+    z-index: 4;
+
+    box-shadow:
+        0 3px 4px rgba(80,20,40,.12);
+}
+
+.cream-one {
+    left: 35px;
+}
+
+.cream-two {
+    left: 111px;
+}
+
+.cream-three {
+    right: 35px;
+}
+
+
+/* شمع */
+
+.candle {
+    position: absolute;
+
+    width: 22px;
+    height: 72px;
+
+    left: 139px;
+    top: 27px;
+
+    z-index: 10;
+
+    border-radius: 8px;
+
+    background:
+        repeating-linear-gradient(
+            -20deg,
+            #fff0f4 0px,
+            #fff0f4 7px,
+            #d87599 8px,
+            #d87599 12px
+        );
+
+    box-shadow:
+        inset 2px 0 4px rgba(255,255,255,.5),
+        2px 5px 10px rgba(0,0,0,.25);
+}
+
+
+/* فتیله */
+
+.wick {
+    position: absolute;
+
+    width: 3px;
+    height: 11px;
+
+    background: #201015;
+
+    top: -9px;
+    left: 9px;
+
+    border-radius: 3px;
+}
+
+
+/* شعله */
+
+.flame {
+    position: absolute;
+
+    width: 25px;
+    height: 34px;
+
+    top: -40px;
+    left: -2px;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff8c7 0%,
+            #ffc35d 30%,
+            #ff7c61 58%,
+            transparent 70%
+        );
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    filter:
+        drop-shadow(
+            0 0 12px #ff9e62
+        )
+        drop-shadow(
+            0 0 25px rgba(255,110,80,.45)
+        );
+
+    animation:
+        flameMove .75s ease-in-out infinite alternate;
+}
+
+.flame.off {
+    opacity: 0;
+
+    transform:
+        translateY(-18px)
+        scale(.15);
+
+    animation: none;
+}
+
+@keyframes flameMove {
+
+    from {
+        transform:
+            rotate(-4deg)
+            scale(.95);
+    }
+
+    to {
+        transform:
+            rotate(4deg)
+            scale(1.08);
+    }
+}
+
+
+/* دکمه */
+
+.blow-button {
+    border:
+        1px solid rgba(255,174,201,.3);
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: #fff;
+
+    padding:
+        14px 28px;
+
+    border-radius: 30px;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    transition: .3s ease;
+}
+
+.blow-button:hover {
+    transform: translateY(-4px);
+
+    background:
+        rgba(205,61,117,.16);
+
+    border-color:
+        rgba(255,174,201,.55);
+
+    box-shadow:
+        0 12px 40px rgba(190,45,100,.2);
+}
+
+.blow-button:disabled {
+    opacity: .6;
+
+    cursor: default;
+
+    transform: none;
+}
+
+.wish-result {
+    min-height: 30px;
+
+    margin-top: 20px;
+
+    color: #e8a4bb;
+
+    font-size: 14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #7e6872;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    background: #050204;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 9px 12px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .section {
+        padding:
+            110px
+            20px
+            80px;
+    }
+
+    .surprise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .surprise-card {
+        min-height: 210px;
+    }
+
+    .letter {
+        padding: 38px 25px;
+    }
+
+    .memory-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .memory-text {
+        text-align: center;
+    }
+
+    .memory-text h2 {
+        font-size: 38px;
+    }
+
+    .memory-photo {
+        max-width: 430px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .intro-content h1 {
+        font-size: 45px;
+    }
+
+    .intro-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .intro-content h1 {
+        font-size: 38px;
+
+        letter-spacing: 1px;
+    }
+
+    .intro-content p {
+        padding: 0 20px;
+    }
+
+    .cake {
+        transform: scale(0.9);
+    }
+
+    .bouquet {
+        transform: scale(0.85);
+    }
+}
+
+/* ===== Designed Flower + Cake + Gift ===== */
+.designed-gifts{
+  width:100%;
+  box-sizing:border-box;
+  padding:48px 16px 58px;
+  text-align:center;
+  overflow:hidden;
+}
+.designed-gifts h2{
+  margin:0 0 36px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(25px,5vw,34px);
+  font-weight:400;
+  letter-spacing:.5px;
+}
+.designed-gifts-row{
+  width:min(850px,100%);
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:clamp(18px,6vw,80px);
+}
+.designed-gift{
+  width:clamp(100px,24vw,175px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  flex-shrink:1;
+}
+.designed-gift>span{
+  display:block;
+  margin-top:12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+  font-size:15px;
+}
+
+/* Flower */
+.css-flower{position:relative;width:145px;height:205px;transform:scale(.88);transform-origin:bottom center;margin-bottom:-18px}
+.flower-head{position:absolute;width:105px;height:105px;left:20px;top:5px}
+.petal{position:absolute;left:31px;top:21px;width:43px;height:64px;border-radius:52% 52% 46% 46%;background:#f1b63e;transform-origin:50% 76%}
+.petal-1{transform:rotate(0deg) translateY(-28px)}
+.petal-2{transform:rotate(60deg) translateY(-28px)}
+.petal-3{transform:rotate(120deg) translateY(-28px)}
+.petal-4{transform:rotate(180deg) translateY(-28px)}
+.petal-5{transform:rotate(240deg) translateY(-28px)}
+.petal-6{transform:rotate(300deg) translateY(-28px)}
+.flower-core{position:absolute;left:32px;top:32px;width:42px;height:42px;border-radius:50%;background:#99502f;box-shadow:inset 0 0 0 7px #b96939}
+.flower-stem{position:absolute;left:68px;top:87px;width:9px;height:118px;border-radius:10px;background:#668a48}
+.flower-leaf{position:absolute;width:50px;height:23px;border-radius:100% 0 100% 0;background:#73974e}
+.leaf-a{left:24px;top:132px;transform:rotate(23deg)}
+.leaf-b{right:8px;top:112px;transform:scaleX(-1) rotate(25deg)}
+
+/* Cake */
+.css-cake{position:relative;width:160px;height:155px;transform:scale(.88);transform-origin:bottom center;margin-bottom:-18px}
+.cake-body{position:absolute;left:17px;width:126px;height:30px;border-radius:7px;background:#d89158;border-bottom:5px solid #bf7040}
+.cake-body-1{bottom:8px}.cake-body-2{bottom:38px}.cake-body-3{bottom:68px}
+.cake-top{position:absolute;left:17px;bottom:90px;width:126px;height:29px;border-radius:50%;background:#fff0da;z-index:5}
+.cream{position:absolute;left:21px;width:118px;height:13px;border-radius:50%;background:#fff7e9;z-index:4}
+.cream-1{bottom:33px}.cream-2{bottom:63px}
+.cake-cherry{position:absolute;width:20px;height:20px;border-radius:50%;background:#c84040;z-index:7;bottom:108px}
+.cherry-a{left:55px}.cherry-b{left:84px}
+.cake-candle{position:absolute;width:5px;height:27px;border-radius:3px;background:#e9b7b0;z-index:8;bottom:121px}
+.candle-a{left:64px;transform:rotate(-8deg)}.candle-b{left:91px;transform:rotate(8deg)}
+
+/* Present */
+.css-present{position:relative;width:150px;height:160px;transform:scale(.88);transform-origin:bottom center;margin-bottom:-18px}
+.present-box{position:absolute;left:22px;bottom:5px;width:106px;height:84px;background:#e7b7ad;border-radius:4px;box-shadow:0 8px 15px rgba(80,50,40,.12)}
+.present-ribbon-v{position:absolute;left:44px;top:0;width:18px;height:100%;background:#f6ddd4}
+.present-ribbon-h{position:absolute;left:0;top:33px;width:100%;height:15px;background:#f6ddd4}
+.present-lid{position:absolute;left:16px;bottom:80px;width:118px;height:20px;border-radius:4px;background:#efc7bc;z-index:3}
+.present-lid:after{content:"";position:absolute;left:50px;top:0;width:18px;height:20px;background:#f6ddd4}
+.present-bow{position:absolute;left:50%;top:49px;width:76px;height:45px;transform:translateX(-50%);z-index:6}
+.bow-part{position:absolute;top:5px;width:39px;height:28px;background:#d58d84}
+.bow-left{left:0;border-radius:80% 20% 70% 30%;transform:rotate(23deg)}
+.bow-right{right:0;border-radius:80% 20% 70% 30%;transform:scaleX(-1) rotate(23deg)}
+.bow-knot{position:absolute;left:30px;top:18px;width:18px;height:18px;border-radius:50%;background:#c87971}
+
+/* Responsive */
+@media (max-width:600px){
+  .designed-gifts{padding:38px 7px 48px}
+  .designed-gifts h2{margin-bottom:25px;font-size:24px}
+  .designed-gifts-row{gap:2px}
+  .designed-gift{width:32vw}
+  .css-flower,.css-cake,.css-present{transform:scale(.68);margin-bottom:-48px}
+  .designed-gift>span{font-size:13px;margin-top:8px}
+}
